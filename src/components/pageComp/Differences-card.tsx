@@ -59,7 +59,7 @@ const DifferencesCard = () => {
 								</p>
 							</div>
 
-							<div className='flex flex-col gap-2 w-[100%] h-[200px] border-solid-gray-300 border-4 p-2 rounded-[1rem]'>
+							<div className='flex flex-col gap-2 w-[100%] h-[200px] border-black-200 border-[1px] p-2 rounded-[1rem] shadow-xl'>
 								<p className='mt-[3rem] text-[20px]'>{obj.text}</p>
 							</div>
 						</div>
