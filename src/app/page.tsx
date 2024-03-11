@@ -1,3 +1,4 @@
+import DifferencesCard from '@/components/pageComp/Differences-card';
 import ImageTextCard from '@/components/pageComp/Image-text-card';
 import MapLocation from '@/components/pageComp/Map-Location';
 import dynamic from 'next/dynamic';
@@ -11,6 +12,7 @@ export default function Home() {
 			<ImageTextCard />
 			<Reason />
 			<MapLocation />
+			<DifferencesCard />
 		</main>
 	);
 }
