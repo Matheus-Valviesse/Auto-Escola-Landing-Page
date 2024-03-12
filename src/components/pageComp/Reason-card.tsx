@@ -40,7 +40,7 @@ const ReasonCard = () => {
 
   return (
     <motion.div
-      className="flex flex-col items-center w-[80vw]"
+      className="flex flex-col items-center w-[80vw] mb-[10rem]"
       variants={container}
       initial="hidden"
       animate={inView ? "visible" : "hidden"} // Inicie a animação apenas quando o componente estiver visível

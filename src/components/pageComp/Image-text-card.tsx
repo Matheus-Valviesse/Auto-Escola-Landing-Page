@@ -11,7 +11,7 @@ const ImageTextCard = () => {
 
   return (
     <motion.div
-      className="bg-gray-300 w-[100%] h-[600px] grid grid-cols-3 mt-2 mb-20 pt-[6.5rem]"
+      className="bg-gray-300 w-[100%] h-[600px] grid grid-cols-3 mt-2 mb-[10rem] pt-[6.5rem]"
       variants={cardMotion}
       initial="hidden"
       animate="visible"
