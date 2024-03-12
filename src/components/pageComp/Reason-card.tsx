@@ -1,5 +1,7 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const ReasonCard = () => {
   const textos = [
@@ -21,39 +23,47 @@ const ReasonCard = () => {
       },
     },
   };
-  const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleScroll = () => {
-    console.log("aqui");
-    let scrollTop;
-    if (containerRef.current != null)
-      scrollTop = containerRef.current.scrollTop;
-    console.log("Valor do scroll vertical:", scrollTop);
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
   };
 
+  // Use a ref para acessar o componente e detectar sua visibilidade
+  const { ref, inView } = useInView({
+    triggerOnce: true, // para disparar a animação apenas uma vez
+    threshold: 1, // ajuste conforme necessário
+  });
+
   return (
-    <div
+    <motion.div
       className="flex flex-col items-center w-[80vw]"
-      ref={containerRef}
-      onScroll={handleScroll}
+      variants={container}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"} // Inicie a animação apenas quando o componente estiver visível
+      ref={ref} // Associe a ref ao componente
     >
       <p className="mb-16 text-3xl">Mais por que nos escolher?</p>
       <div className="grid grid-cols-2 gap-4 ">
         {textos &&
           textos.length > 0 &&
           textos?.map((texto) => (
-            <div
+            <motion.div
               className="flex flex-row items-center gap-2 h-[100px]"
               key={texto}
+              variants={item}
             >
               <div className="bg-gray-300 h-[100%]">
                 <div className="opacity-0 text-[20px]">_</div>
               </div>
               <p className="text-[20px]">{texto}</p>
-            </div>
+            </motion.div>
           ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

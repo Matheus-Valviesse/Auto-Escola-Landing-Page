@@ -19,7 +19,7 @@ const Nav = () => {
     >
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
         <Link href={`/`}>
-          <h1 className="text-[30px]">Auto Escola Méier</h1>
+          <h1 className="text-[30px]">MR Rocha Auto Escola</h1>
         </Link>
 
         <div className="flex gap-8">
